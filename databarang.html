@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DATA BARANG</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="body3">
+    <h4><b>DATA BARANG</b></h4>
+    <div class="container">
+        <form action="proses">
+            <table cellpadding="10">
+                <tr>
+                    <td>INPUT KODE BARANG</td>
+                    <td>:</td>
+                    <td><input type="text" id="kodebarang" name="Kode Barang"></td> 
+                </tr> 
+                <tr>
+                    <td>INPUT NAMA BARANG</td>
+                    <td>:</td>
+                    <td><input type="text" id="namabarang" name="Nama Barang"></td>
+                </tr>
+                <tr>
+                    <td>INPUT HARGA BARANG</td>
+                    <td>:</td>
+                    <td><input type="text" id="hargabarang" name="Harga Barang"></td>
+                </tr>
+                <tr>
+                    <td>INPUT SATUAN BARANG</td>
+                    <td>:</td>
+                    <td><select id="satuanbarang">
+                        <option value="buah">BUAH</option>
+                        <option value="lembar">LEMBAR</option>
+                        <option value="kg">KILOGRAM</option>
+                        <option value="lusin">LUSIN</option>
+                        <option value="buah">BUAH</option>
+                    </select></td>
+                </tr>
+                <tr>
+                    <td><button type="button" value="proses" onclick="proses()">PROSES</button></td>
+                </tr>
+            </table>
+        </form>
+        <br>
+        <table id="tabelbarang" border="1" cellpadding="7">
+            <tr>
+                <th>KODE BARANG</th>
+                <th>NAMA BARANG</th>
+                <th>HARGA BARANG</th>
+                <th>SATUAN BARANG</th>
+            </tr>
+        </table>
+    </div>
+
+    <script>
+        function proses() {
+            var kodebarang = document.getElementById("kodebarang").value;
+            var namabarang = document.getElementById("namabarang").value;
+            var hargabarang = document.getElementById("hargabarang").value;
+            var satuanbarang = document.getElementById("satuanbarang").value;
+
+            var tabel = document.getElementById("tabelbarang");
+            var row = tabel.insertRow(-1);
+
+            var cellkodebarang = row.insertCell(0);
+            var cellnamabarang = row.insertCell(1);
+            var cellhargabarang = row.insertCell(2);
+            var cellsatuanbarang = row.insertCell(3);
+
+            cellkodebarang.innerHTML = kodebarang;
+            cellnamabarang.innerHTML = namabarang;
+            cellhargabarang.innerHTML = hargabarang;
+            cellsatuanbarang.innerHTML = satuanbarang;
+
+            document.getElementById("kodebarang").value = "";
+            document.getElementById("namabarang").value = "";
+            document.getElementById("hargabarang").value = "";
+            document.getElementById("satuanbarang").value = "";
+        }
+    </script>
+</body>
+</html>

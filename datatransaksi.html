@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DATA TRANSAKSI</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="body3">
+    <h4><b>DATA TRANSAKSI</b></h4>
+    <div class="container">
+        <form action="proses">
+            <table cellpadding="10">
+                <tr>
+                    <td>NOMOR FAKTUR</td>
+                    <td>:</td>
+                    <td><input type="text" id="nomorfaktur" name="Nomor Faktur"></td>
+                </tr>
+                <tr>
+                    <td>KODE BARANG</td>
+                    <td>:</td>
+                    <td><input type="text" id="kodebarang" name="Kode Barang"></td>
+                </tr>
+                <tr>
+                    <td>HARGA JUAL</td>
+                    <td>:</td>
+                    <td><input type="number" id="hargajual" name="Harga Jual"></td>
+                </tr>
+                <tr>
+                    <td>JUMLAH JUAL</td>
+                    <td>:</td>
+                    <td><input type="number" id="jumlahjual" name="Jumlah Jual"></td>
+                </tr>
+                <tr>
+                    <td><button type="button" value="proses" onclick="proses()">PROSES</button></td>
+                </tr>
+            </table>
+        </form>
+        <br>
+        <table id="tabeltransaksi" border="1" cellpadding="7">
+            <tr>
+                <th>NOMOR FAKTUR</th>
+                <th>KODE BARANG</th>
+                <th>HARGA JUAL</th>
+                <th>JUMLAH JUAL</th>
+                <th>TOTAL</th>
+                <th>DISKON</th>
+            </tr>
+        </table>   
+    </div>
+
+    <script>
+        function proses() {
+            var nomorfaktur = document.getElementById("nomorfaktur").value;
+            var kodebarang = document.getElementById("kodebarang").value;
+            var hargajual = document.getElementById("hargajual").value;
+            var jumlahjual = document.getElementById("jumlahjual").value;
+        
+            var table = document.getElementById("tabeltransaksi");
+            var row = table.insertRow(-1);
+            var nomorfakturCell = row.insertCell(0);
+            var kodebarangCell = row.insertCell(1);
+            var hargajualCell = row.insertCell(2);
+            var jumlahjualCell = row.insertCell(3);
+            var totalCell = row.insertCell(4);
+            var diskonCell = row.insertCell(5);
+
+            nomorfakturCell.innerHTML = nomorfaktur;
+            kodebarangCell.innerHTML = kodebarang;
+            hargajualCell.innerHTML = hargajual;
+            jumlahjualCell.innerHTML = jumlahjual;
+
+            var total = hargajual * jumlahjual;
+            totalCell.innerHTML = total;
+
+            var diskon = 0;
+            if (total > 10) {
+                diskon = total * 5.0;
+            }
+            diskonCell.innerHTML = diskon;
+        }
+    </script>
+</body>
+</html>

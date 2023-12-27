@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DATA PELANGGAN</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="body3">
+    <h4><b>DATA PELANGGAN</b></h4>
+    <div class="container">
+        <form action="proses">
+            <table cellpadding="10">
+                <tr>
+                    <td>INPUT KODE PELANGGAN</td>
+                    <td>:</td>
+                    <td><input type="text" id="kodepelanggan" name="Kode Pelanggan"></td>
+                </tr>
+                <tr>
+                    <td>INPUT NAMA PELANGGAN</td>
+                    <td>:</td>
+                    <td><input type="text" id="namapelanggan" name="Nama Pelanggan"></td>
+                </tr>
+                <tr>
+                    <td>INPUT NOMOR TELEPON</td>
+                    <td>:</td>
+                    <td><input type="text" id="telepon" name="Telepon"></td>
+                </tr>
+                <tr>
+                    <td><button type="button" value="proses" onclick="proses()">PROSES</button></td>
+                </tr>
+            </table>            
+        </form>
+        <br>
+        <table id="tabelpelanggan" border="1" cellpadding="7">
+            <tr>
+                <th>KODE PELANGGAN</th>
+                <th>NAMA PELANGGAN</th>
+                <th>TELEPON</th>
+            </tr>
+        </table>
+    </div>
+
+    <script>
+        function proses() {
+            var kodepelanggan = document.getElementById("kodepelanggan").value;
+            var namapelanggan = document.getElementById("namapelanggan").value;
+            var telepon = document.getElementById("telepon").value;
+
+            var tabel = document.getElementById("tabelpelanggan");
+            var row = tabel.insertRow(-1);
+
+            var cellkodepelanggan = row.insertCell(0);
+            var cellnamapelanggan = row.insertCell(1);
+            var celltelepon = row.insertCell(2);
+    
+            cellkodepelanggan.innerHTML = kodepelanggan;
+            cellnamapelanggan.innerHTML = namapelanggan;
+            celltelepon.innerHTML = telepon;
+
+            document.getElementById("kodepelanggan").value = "";
+            document.getElementById("namapelanggan").value = "";
+            document.getElementById("telepon").value = "";
+        }
+
+    </script>
+</body>
+</html>
